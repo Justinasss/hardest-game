@@ -14,4 +14,12 @@ public class Movement : MonoBehaviour
         //new Vector3(x, 0, z).normalized move equally in all directions
         transform.position += new Vector3(x, 0, z).normalized * speed * Time.deltaTime;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+            print("Game Over");
+        }
+    }
 }

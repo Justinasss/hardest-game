@@ -1,20 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Follow : MonoBehaviour
 {
+    
+    public string nextScene;
 
-    public Transform target;
-
-    public float speed = 2.0f;
-
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision other)
     {
-        transform.LookAt(target);
-
-        transform.position += transform.forward * speed * Time.deltaTime;
-
+        if (other.gameObject.CompareTag("Player"))
+        {
+            SceneManager.LoadScene(nextScene);
+        } 
     }
 }

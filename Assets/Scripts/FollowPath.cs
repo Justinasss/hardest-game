@@ -9,6 +9,8 @@ public class FollowPath : MonoBehaviour
 
     public float speed = 2.0f;
 
+    public bool reverse = false;
+
     private Vector3 target;
     private int index = 0;
 
@@ -26,6 +28,9 @@ public class FollowPath : MonoBehaviour
             if (index >= path.Count)
             {
                 index = 0;
+
+                if(reverse) path.Reverse();
+                 
             }
             target = path[index];
             
